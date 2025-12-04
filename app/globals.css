@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom component classes must start with food- prefix per spec */
+
+/* Custom component classes must start with food- prefix per spec */
+
+.food-container {
+    @apply max-w-7xl mx-auto p-6;
+}
+
+.food-footer {
+    @apply mt-10 py-6 bg-white border-t;
+}
+
+.food-heading {
+    @apply text-3xl font-bold text-gray-900;
+}
+
+.food-sub {
+    @apply text-gray-500 mt-1;
+}
+
+.food-description {
+    @apply text-gray-600 text-base;
+}
+
+.food-btn {
+    @apply bg-amber-500 text-white px-6 py-3 rounded-md shadow-lg font-bold inline-flex items-center gap-2 hover:bg-amber-600 transition disabled:opacity-60 disabled:cursor-not-allowed;
+}
+
+.food-btn-outline {
+    @apply border border-gray-300 text-gray-700 px-4 py-2 rounded-md inline-flex items-center gap-2 hover:bg-gray-50 transition disabled:opacity-60 disabled:cursor-not-allowed;
+}
+
+.food-btn-danger {
+    @apply bg-red-500 text-white px-4 py-2 rounded-md inline-flex items-center gap-2 hover:bg-red-600 transition disabled:opacity-60 disabled:cursor-not-allowed;
+}
+
+.food-card {
+    @apply bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 ease-out;
+}
+
+.food-card:hover {
+    @apply -translate-y-1;
+}
+
+.food-name {
+    @apply font-bold text-lg text-gray-900;
+}
+
+.food-price {
+    @apply absolute top-4 left-0 bg-amber-500 text-white font-bold px-3 py-1 rounded-r-md shadow-md z-10;
+}
+
+.food-rating {
+    @apply flex items-center gap-1 text-amber-500 font-bold text-sm;
+}
+
+.restaurant-name {
+    @apply text-sm text-gray-500 font-medium;
+}
+
+.restaurant-status {
+    @apply text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wide;
+}
+
+.restaurant-logo {
+    @apply w-12 h-12 rounded-lg object-cover border-2 border-white shadow-sm absolute bottom-0 left-4 translate-y-1/2;
+}
+
+.empty-state-message {
+    @apply text-center py-16 text-gray-500;
+}
+
+.food-search-form {
+    @apply flex flex-col gap-2;
+}
+
+.food-search-bar {
+    @apply flex flex-col sm:flex-row gap-2 bg-white p-2 rounded-lg shadow-lg;
+}
+
+.food-loading {
+    @apply flex items-center gap-3 text-gray-600;
+}
+
+.food-spinner {
+    @apply inline-block w-5 h-5 border-2 border-current rounded-full animate-spin;
+    border-top-color: transparent;
+}
+
+.food-status-open {
+    @apply bg-green-100 text-green-600;
+}
+
+.food-status-closed {
+    @apply bg-red-100 text-red-600;
+}
+
+.food-status-unknown {
+    @apply bg-gray-100 text-gray-600;
+}
+
+/* Modal classes prefixed with food- */
+.food-modal-backdrop {
+    @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50;
+}
+
+.food-modal-card {
+    @apply bg-white rounded-xl p-6 w-full max-w-2xl shadow-2xl;
+}
+
+/* Form */
+.food-form {
+    @apply flex flex-col gap-4;
+}
+
+.food-input {
+    @apply border border-gray-200 rounded-md px-4 py-3 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition;
+}
+
+.food-label {
+    @apply text-sm font-bold text-gray-700;
+}
+
+/* Animations: slide-up on entry (300ms) */
+@keyframes food-slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.food-animate-entry {
+    animation: food-slide-up 300ms ease-out forwards;
+}
