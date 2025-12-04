@@ -15,7 +15,11 @@ const initialState: FoodState = {
 };
 
 // Async thunks
-export const fetchFoods = createAsyncThunk(
+export const fetchFoods = createAsyncThunk<
+  Food[],
+  string | undefined,
+  { rejectValue: string }
+>(
   "food/fetchFoods",
   async (searchTerm?: string) => {
     const data = await api.fetchFoods(searchTerm);
