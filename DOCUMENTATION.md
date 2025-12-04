@@ -107,6 +107,15 @@ npm test
 npm run build
 ```
 
+The build process:
+- Compiles TypeScript to JavaScript
+- Validates types with strict TypeScript checking
+- Lints code for errors
+- Optimizes and bundles the application
+- Generates static pages where possible
+
+**Note**: The project uses strict TypeScript mode. All async thunks are properly typed for type safety and successful builds.
+
 ## API Configuration
 
 ### Base URL
@@ -184,6 +193,51 @@ All errors are logged to the console for debugging purposes.
 ### Redux Error State
 
 The Redux store includes an `error` field in the food state that is automatically populated when API calls fail through async thunks. This error is displayed in the UI (e.g., in the main page when loading foods fails).
+
+## Deployment
+
+### Vercel Deployment
+
+The project is configured for seamless deployment on Vercel:
+
+1. **Connect Repository**: Link your GitHub repository to Vercel
+2. **Automatic Builds**: Vercel automatically detects Next.js and configures:
+   - Build Command: `npm run build`
+   - Output Directory: `.next` (Next.js default)
+   - Install Command: `npm install`
+
+3. **Environment Variables** (Optional):
+   - `NEXT_PUBLIC_API_BASE_URL` - Custom API base URL (if different from default)
+
+4. **No Additional Configuration Required**:
+   - The project builds successfully with strict TypeScript checking
+   - All async thunks are properly typed
+   - All dependencies are correctly configured
+
+### Build Verification
+
+Before deploying, ensure the build succeeds locally:
+
+```bash
+npm run build
+```
+
+Expected output should show:
+- ✓ Compiled successfully
+- ✓ Linting and checking validity of types
+- ✓ Collecting page data
+- ✓ Generating static pages
+
+## TypeScript Configuration
+
+The project uses strict TypeScript mode with the following configuration:
+
+- **Strict Mode**: Enabled for type safety
+- **Type Checking**: All Redux thunks are explicitly typed
+- **Async Thunks**: Properly typed with generic parameters:
+  ```typescript
+  createAsyncThunk<ReturnType, ParameterType, ThunkAPI>
+  ```
 
 ## Form Validation
 
